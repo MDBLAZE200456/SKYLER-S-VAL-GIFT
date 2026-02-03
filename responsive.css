@@ -1,0 +1,46 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Container */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Media Queries */
+
+/* For mobile devices (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+/* For tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+/* For desktops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+/* For large desktops (1025px and above) */
+@media only screen and (min-width: 1025px) {
+  .container {
+    padding: 30px;
+  }
+}

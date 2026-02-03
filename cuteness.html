@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Measuring Your Cuteness and my love for you  💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  height:100vh;
+  background: linear-gradient(135deg,#ffd1e8,#ffb6d5,#ffe6f2);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins', sans-serif;
+  overflow:hidden;
+}
+
+.container{
+  text-align:center;
+  color:#b0124d;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Loader */
+.loader{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  border:10px solid rgba(176,18,77,0.2);
+  border-top:10px solid #b0124d;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  animation: spin 1s linear infinite;
+}
+
+.percent{
+  position:absolute;
+  font-size:2.5rem;
+  font-weight:700;
+}
+
+/* Popup */
+.popup{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  background:#fff;
+  color:#b0124d;
+  padding:30px 40px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+  transition:0.5s;
+  z-index:10;
+}
+
+.popup h2{
+  font-family:'Pacifico', cursive;
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+.popup.show{
+  transform:translate(-50%,-50%) scale(1);
+}
+
+/* Animations */
+@keyframes spin{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 style="font-family:Pacifico">Measuring Your Cuteness and my love for you  💕</h1>
+  <br>
+
+  <div class="loader">
+    <div class="percent" id="percent">0%</div>
+  </div>
+</div>
+
+<!-- Warning Popup -->
+<div class="popup" id="popup">
+  <h2>⚠ Warning!</h2>
+  <p>You are too cute to measure 😍💖</p>
+  <p>and my love for you can not be measured 😍💖</p>
+</div>
+
+<script>
+let percent = 0;
+const percentText = document.getElementById("percent");
+const popup = document.getElementById("popup");
+
+const interval = setInterval(()=>{
+  percent++;
+  percentText.innerHTML = percent + "%";
+
+  if(percent >= 100){
+    clearInterval(interval);
+
+    // Stop loader
+    document.querySelector(".loader").style.animation = "none";
+
+    // Show popup
+    setTimeout(()=>{
+      popup.classList.add("show");
+    }, 600);
+
+    // Auto redirect to next page
+    setTimeout(()=>{
+      window.location.href = "options.html"; // THIRD PAGE
+    }, 2600); // popup ke 2 sec baad
+  }
+}, 35);
+</script>
+
+</body>
+</html>

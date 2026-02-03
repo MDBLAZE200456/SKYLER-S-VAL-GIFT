@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Note  to my bby, ny angry bird 💌</title>
+<h1>
+  HAPPY VALENTINE DAY MY BBY❤️
+</h1>
+
+
+<
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+h1{
+   font-family:'Pacifico',cursive;
+  font-size:3.1rem;
+  color:#b0124d; 
+  
+}
+body{
+  height:100vh;
+  background: linear-gradient(135deg,#ffd1e8,#ffb6d5,#ffe6f2);
+  font-family:'Poppins',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* floating hearts */
+.float{
+  position:absolute;
+  animation: floatUp linear infinite;
+  opacity:0.6;
+}
+@keyframes floatUp{
+  0%{bottom:-10%; transform:translateX(0)}
+  100%{bottom:110%; transform:translateX(40px)}
+}
+
+.container{
+  z-index:2;
+  animation: fadeIn 1.6s ease;
+  text-align:center;
+}
+
+/* Envelope card */
+.envelope{
+  width:360px;
+  background:#fff;
+  border-radius:28px;
+  padding:35px 28px 40px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.35);
+  position:relative;
+}
+
+/* heart seal */
+.seal{
+  width:60px;
+  height:60px;
+  background:#ff2f6d;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:26px;
+  position:absolute;
+  top:-30px;
+  left:50%;
+  transform:translateX(-50%);
+  box-shadow:0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* note text */
+.letter{
+  font-size:1.15rem;
+  font-weight:600;
+  color:#7a0d35;
+  line-height:1.75;
+  min-height:210px;
+  text-align:left;
+}
+
+/* stickers */
+.sticker{
+  position:absolute;
+  font-size:26px;
+  animation: stickerFloat 4s infinite ease-in-out;
+}
+.s1{top:-15px;left:-15px}
+.s2{top:-15px;right:-15px}
+.s3{bottom:-15px;left:40px}
+.s4{bottom:-15px;right:40px}
+
+@keyframes stickerFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+/* button */
+button{
+  margin-top:45px;
+  padding:16px 50px;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(45deg,#ff2f6d,#ff7aa2);
+  color:#fff;
+  font-size:1.15rem;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 15px 40px rgba(0,0,0,0.35);
+  transition:0.4s;
+}
+button:hover{transform:scale(1.12)}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px)}
+  to{opacity:1; transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="envelope">
+    <div class="seal">💖</div>
+
+    <div class="letter" id="text"></div>
+
+    <div class="sticker s1">🧸</div>
+    <div class="sticker s2">✨</div>
+    <div class="sticker s3">🌸</div>
+    <div class="sticker s4">💗</div>
+  </div>
+
+  <!-- FINAL PAGE LINK -->
+  <button onclick="location.href='final.html'">
+    One More Thing 💕
+  </button>
+
+</div>
+
+<script>
+// floating hearts
+const icons=["💖","✨","💗","🌸"];
+for(let i=0;i<24;i++){
+  let el=document.createElement("div");
+  el.className="float";
+  el.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.fontSize=(18+Math.random()*14)+"px";
+  el.style.animationDuration=(6+Math.random()*5)+"s";
+  document.body.appendChild(el);
+}
+
+// typewriter note (≈45 words)
+const note=`I just want you to know that you make everything feel warmer and brighter.
+Your presence brings calm, your smile brings comfort,your anger boost my faith that we can be together forever,  and your kindness makes ordinary moments feel special.
+This note is small, but it carries feelings that are truly meant only for you 💕`;
+
+let i=0;
+const speed=35;
+const textDiv=document.getElementById("text");
+
+function typeNote(){
+  if(i<note.length){
+    textDiv.innerHTML+=note.charAt(i);
+    i++;
+    setTimeout(typeNote,speed);
+  }
+}
+typeNote();
+</script>
+
+</body>
+</html>
