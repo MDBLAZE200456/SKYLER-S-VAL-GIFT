@@ -1,46 +1,163 @@
 /* Global Styles */
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Prevent scrolling globally as requested */
+  position: fixed;
+  /* Lock value for mobile */
+  overscroll-behavior: none;
+  /* Prevent bounce effects */
+}
 
-/* Container */
-
+/* Base Responsive Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  width: 100%;
+  height: 100%;
+  /* Ensure container takes full height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Media Queries */
+/* Mobile Responsiveness (Max Width: 768px) */
+@media only screen and (max-width: 768px) {
 
-/* For mobile devices (max-width: 480px) */
-@media only screen and (max-width: 480px) {
+  /* General Layout */
   .container {
     padding: 10px;
+    width: 100%;
+    justify-content: center;
+    /* Ensure vertical centering */
+  }
+
+  /* Typography Scaling - aggressively compact */
+  h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+    margin-bottom: 10px !important;
+  }
+
+  p,
+  .subtitle,
+  .extra,
+  .letter {
+    font-size: 0.9rem !important;
+    margin-bottom: 5px !important;
+  }
+
+  /* Specific Elements */
+  .teddy {
+    font-size: 50px !important;
+    margin: 5px 0 15px !important;
+  }
+
+  /* Note Page Envelope */
+  .envelope {
+    width: 90% !important;
+    max-width: 320px;
+    padding: 20px 15px !important;
+    transform: scale(0.9);
+    /* Scale down slightly to ensure fit */
+  }
+
+  .letter {
+    min-height: 150px !important;
+    /* Reduce min-height */
+    font-size: 0.95rem !important;
+  }
+
+  /* Cuteness Page Loader */
+  .loader {
+    width: 120px !important;
+    height: 120px !important;
+    border-width: 6px !important;
+  }
+
+  .percent {
+    font-size: 1.8rem !important;
+  }
+
+  /* Options Page Cards */
+  .cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .card {
+    padding: 15px 8px !important;
+  }
+
+  .word {
+    font-size: 1.1rem !important;
+  }
+
+  /* Buttons */
+  button,
+  .next-btn {
+    padding: 10px 25px !important;
+    font-size: 0.95rem !important;
+    margin-top: 15px !important;
+    width: auto !important;
+    min-width: 150px;
+  }
+
+  /* Footer in Final Page */
+  footer {
+    font-size: 0.8rem !important;
+    position: absolute !important;
+    bottom: 15px;
+    width: 100%;
+    padding: 0 10px;
   }
 }
 
-/* For tablets (481px - 768px) */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  .container {
-    padding: 15px;
+/* Small Mobile Devices (Max Width: 480px) */
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem !important;
+  }
+
+  .teddy {
+    font-size: 45px !important;
+    margin: 5px 0 10px !important;
+  }
+
+  /* Compact cards even more */
+  .cards {
+    gap: 6px !important;
   }
 }
 
-/* For desktops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    padding: 20px;
+/* Very Small Screens (iPhone SE etc) */
+@media only screen and (max-width: 320px) {
+  h1 {
+    font-size: 1.2rem !important;
   }
-}
 
-/* For large desktops (1025px and above) */
-@media only screen and (min-width: 1025px) {
-  .container {
-    padding: 30px;
+  .teddy {
+    font-size: 40px !important;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Keep 2 cols but might be tight */
+  .envelope {
+    transform: scale(0.85);
   }
 }
